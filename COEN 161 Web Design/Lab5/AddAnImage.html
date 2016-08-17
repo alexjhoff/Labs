@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Event Handling </title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script>	
+	function addAnImage(){	
+        var myimg = document.createElement("img");
+        myimg.id = "myimg";	// Replace it with an id of your choice
+        myimg.src = "btn.jpg"; // Replace this with the actual image name
+        myimg.alt = "button";	// Replace this with an appropriate desc
+
+		//Now add the image element as a child of the element that triggered the event.
+		// Think "this".
+		this.appendChild(myimg);
+	}	
+	function registerHandlers(){
+        var one = document.getElementById("one");
+        one.onclick = addAnImage;
+        var two = document.getElementById("two");
+        two.onclick = addAnImage;
+        
+        // Add code here to registerthe function, addAnImage as the
+		// event handler on the block with red color and the block with green
+		// color. You may to check the styles.css to see the block ids with the 
+		// colors red and green
+		
+	}
+</script>
+<head>
+<body onload="registerHandlers();">
+<div id="container">
+<div id="one">
+Div One
+</div>
+<div id="two">
+Div two
+</div>
+</div>
+<div id="displaybox">
+<h4> Move mouse over the colored blocks and click</h4>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html><head> <title>Surprise Discounts</title> 
+<style> 
+.tile {display: block;width: 100px; height: 100px;}
+#tile1 {font: 24px arial;background-color: red; color: white;float:left}
+#tile2 {font: 24px arial;background-color: blue; color: white;float:left}
+#tile3 {font: 24px arial;background-color: green; color: white;float:left}
+#discount {font: 24px arial;display: none;width: 300px; height: 100px;clear:both;
+background-color: yellow; color: black;border: 1px solid green;}
+}
+</style> 
+ <script type='text/javascript' src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head> 
+<body>      	
+	<div class="tile" id="tile1">A</div> 
+	<div class="tile" id="tile2">B</div> 
+	<div class="tile" id="tile3">C</div>
+	<div id="discount"></div>	
+<script> 
+	$(document).ready(function() {
+		$("#tile1").click( function() {
+				var discount = (randomDiscount() + 1);
+				$("#discount").show(1000).html("<h4> Your discount is "+discount+"% </h4>");
+		});//end move_up
+        $("#tile2").click( function() {
+                var discount = (randomDiscount() + 5);
+                $("#discount").show(2000).html("<h4> Your discount is "+discount+"% </h4>");
+                });//end move_up
+        $("#tile3").click( function() {
+                var discount = (randomDiscount() + 10);
+                $("#discount").show(3000).html("<h4> Your discount is "+discount+"% </h4>");
+                });//end move_up
+		
+	});//end doc ready
+    function randomDiscount(){
+        var randInt = new Date();
+        return (randInt % 20);
+    }
+</script> 
+</body> 
+</html>

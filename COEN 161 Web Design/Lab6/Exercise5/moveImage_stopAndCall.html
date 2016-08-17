@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+<meta charset="utf-8"/>
+<title>Move Image</title>
+<script type='text/javascript' src="http://code.jquery.com/jquery-latest.min.js"></script> 
+<style type="text/css">
+	#one{
+		position: relative; 
+		left:0px;
+		background-color:yellow;	
+	}
+	#fimg {
+		position: relative; 
+		left:50px;
+	}
+
+</style>
+     
+   <script type = "text/javascript">
+    $(document).ready(function() { 
+		animateImage();
+	}); 
+	function animateImage(){
+		
+		// Modify the code so that the animation runs for 5 seconds and at the end
+		// calls a function that alerts a message, "All done, time's up.
+		
+		$('#fimg').animate(
+				{left:'+=200px'},
+				5000,'linear');
+        allDone();
+       
+	}
+   function allDone(){
+       setTimeout(function() {alert("All done, time's up.")}, 5000);
+   }
+      </script>
+   </head>
+	<body>
+	<div id="one"> 
+		<img id="fimg" src="tiger.gif" alt="tiger" />		
+	</div>
+	<div>
+	<input id="movebtn" type="button" value="move" />
+	</div>
+   </body>
+</html>
+
+
+

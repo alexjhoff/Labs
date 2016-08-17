@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title> Get city for the zip</title>
+
+<script language="javascript"  type="text/javascript">
+
+// Fill in the url of the PHP script
+var url = "http://localhost:8888/lab9_part2/cityState.php?param="; // The server-side script
+
+function handleHttpResponse() {
+
+  /* Check the status property to check the status code of the response
+  this should be 200 for a successful completion of the request */
+  
+  if (http.status == 200){
+  	alert("Data returned is:"+ http.responseText);
+  }
+  else{
+  	alert("Error: "+http.responseText);
+  }
+  /* checking the readyState value to be 4 may not be enough always */
+  if (http.readyState == 4) {
+  
+  /* respnseText returns a string containing the response body
+   Split the comma delimited response into an array
+   */
+
+    results = http.responseText.split(",");
+    
+    document.getElementById('city').value = results[0];
+    document.getElementById('state').value = results[1];
+  }
+}
+
+function updateCityState() {
+    zipValue = document.getElementById("zip").value;
+
+    /* open() takes 3 arguments
+    	request type, uRL and Async
+    */
+    
+    http.open("GET", url + escape(zipValue), true);
+    
+    /* XMLHttp object has a property cally readyState.
+    readyState changes as the request goes thro' and the response 
+    is received. there are 5 possible values for readyState
+    0 - uninitialized, 1(loading), 2 (Loaded), 3(Interactive) and 
+    4 (complete). Everytime the readyState property changes from one value to 
+    another, the readyStatechange event fires and the event handler is called
+    */
+    // Set the handler to fire on readyStateChange event
+    http.onreadystatechange = handleHttpResponse;
+    
+    /* send sends the request. the single argument is a string for the 
+    request body.If the request does not require a body, you must pass a null.
+    Note that the GET request does not require a body
+    */
+    
+    http.send(null);
+}
+function getHTTPObject() {
+  var xmlhttp;
+  
+  if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
+    try {
+     // Create an XMLHttpRequest object
+      xmlhttp = new XMLHttpRequest();
+    } catch (e) {
+      xmlhttp = false;
+    }
+  }
+  return xmlhttp;
+}
+
+var http = getHTTPObject(); // We create the HTTP Object
+
+</script>
+</head>
+<body>
+<form >
+  <p>
+  ZIP code:
+  <input type="text" size="5" name="zip" id="zip" onblur="updateCityState();"  />
+  </p>
+  City:
+  <input type="text" name="city" id="city" />
+  State:
+  <input type="text" size="2" name="state" id="state" />
+</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Fade In and Out</title>
+	 <script type='text/javascript' src="http://code.jquery.com/jquery-latest.min.js"></script>
+	 
+	<script type='text/javascript'>
+	$(document).ready(function() {  
+		$("#fadein").click(function() {
+			$('#one').fadeIn("slow");
+		});
+		$("#fadeout").click(function() {
+			$('#two').fadeOut();
+		});
+	}); 
+	</script>
+  </head>
+  <body>
+	<div id="one" style="width:100px;height:100px;background-color:Red;display:none;">
+	</div>
+	<div id="two" style="width:100px;height:100px;background-color:blue">
+	</div>
+
+	<input type="button" id="fadein" value="FadeIn" />
+	<input type="button" id="fadeout" value="FadeOut" />
+  </body>
+</html>

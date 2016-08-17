@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+<meta charset="utf-8"/>
+<title>Move Image</title>
+<script type='text/javascript' src="http://code.jquery.com/jquery-latest.min.js"></script> 
+<style type="text/css">
+	#one{
+		position: relative; 
+		left:0px;
+		background-color:yellow;	
+	}
+	#fimg {
+		position: relative; 
+		left:50px;
+	}
+
+</style>
+     
+   <script type = "text/javascript">
+    $(document).ready(function() { 
+		animateImage();		
+	}); 
+	function animateImage(){
+		// animate with 3 parameters - CSS property object, duration, easing and 
+		// the function to call at the end of animation
+		// linear easing progresses at a constant pace
+		// To see examples of other easings, check http://matthewlein.com/experiments/easing.html
+        $("#movebtn").click( function(){
+                $('#fimg').animate(
+                    {left:'+=250px'},
+                    1000,'linear',animateImage);
+        });
+        $("#stopbtn").click( function(){
+                $('#fimg').stop();
+        });
+    }
+      </script>
+   </head>
+	<body>
+	<div id="one"> 
+		<img id="fimg" src="tiger.gif" alt="tiger" />		
+	</div>
+	<div>
+	<input id="movebtn" type="button" value="move" />
+    <input id="stopbtn" type="button" value="stop" />
+	</div>
+   </body>
+</html>
+
+
+

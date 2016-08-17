@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Web Cafe</title>
+<script src="cafe.js" type="text/javascript"> </script>
+</head>
+<body>
+<form id="cafe" action="">
+<h1>The Web Cafe</h1>
+<p>Place your order:</p>
+<select id="entries" size="10" multiple="multiple" onchange="updateOrder()">
+<option value="hamburger">Hamburger</option>
+<option value="hotdog">HotDog</option>
+<option value="fudgecookie">Fudge-Cookie</option>
+<option value="frenchfries">French Fries</option>
+<option value="cola">Cola</option>
+<option value="blacktarheroin">Black Tar Heroin</option>
+<option value="chocotaco">Choco Taco</option>
+<option value="vietnameseprostitute">Vietnamese Prostitute</option>
+<option value="calligraphypen">Calligraphy Pen</option>
+<option value="fatboyslimalbumonvinal">Fat Boy Slim Album on Vinal</option>
+</select>
+<p>You ordered: </p>
+<p>
+<textarea id="summary" rows="10" cols="30" style="background-color:beige;"></textarea></p>
+
+<input type="button" id="order" value="Yes Please!" onclick="processOrder()" />
+
+</form>
+</body>
+</html>

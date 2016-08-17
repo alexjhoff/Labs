@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html><head> <title>How many colors?</title> 
+<style> 
+#q,#answerbtn,#ansfld,img {display:none}
+
+</style> 
+ <script type='text/javascript' src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head> 
+<body>  
+	<button id="show">Show Image</button>
+	<img src="tiger.gif" alt="tiger" id="tiger"</img>
+	<p id="q">	How many colors are in the image?	</p>
+	<input type="text" id="ansfld" /> 
+	<button id="answerbtn">My Answer</button>	
+<script> 
+	$(document).ready(function() {
+		$("#show").click( function() {
+				// add code to show the image with "slow" as a parameter
+                $("#tiger").fadeIn("slow");
+				// add code to fadeout the image with "slow" as a parameter
+                $("#tiger").fadeOut("slow");
+				// add code to fadein the element (with id q) with "slow" as a parameter
+				$("#q").fadeIn("slow");
+				// add code to fadein the element (with id ansfld) with "slow" as a parameter
+				$("#ansfld").fadeIn("slow");
+				// add code to fadein the element (with id answerbtn) with "slow" as a parameter
+				$("#answerbtn").fadeIn("slow");
+		});
+		$("#answerbtn").click( function() {
+				// get the value from the field with id #ansfld. val() is the
+				// function to use to get the value.
+                var value = $("#ansfld").val();
+				
+				
+				// Write code to alert the message, "Correct" if the value entered 
+				// is 4. If the value is 3, alert message, "almost correct". Any other 
+				// value, alert "incorrect".
+                if(value == 4)
+                    alert("Correct");
+                else if(value == 3)
+                    alert("Almost Correct");
+                else
+                    alert("incorrect");
+		});
+		
+	});//end doc ready
+</script> 
+</body> 
+</html>
